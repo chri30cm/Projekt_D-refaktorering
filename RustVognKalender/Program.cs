@@ -171,12 +171,12 @@ namespace Console_Menu
             bool BooleanChoice()
             {
                 string input = Console.ReadLine();
-                if (input == "J" || input == "j")
+                if (input.ToLower() == "j")
                 {
                     Running = false;
                     return Running;
                 }
-                else if (input == "N" || input == "n")
+                else if (input.ToLower() == "n")
                 {
                     Running = false;
                     return Running;
@@ -231,11 +231,11 @@ namespace Console_Menu
             else if (ckey.Key == ConsoleKey.UpArrow)
             {
                 // stops you from going further up than the menu has items.
-                if (index <= 0)
+                if (index > 0)
                 {
-
+                    index--;
                 }
-                else { index--; }
+                
             }
             else if (ckey.Key == ConsoleKey.Enter)
             {
