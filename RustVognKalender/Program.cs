@@ -7,10 +7,11 @@ namespace Console_Menu
     class Program
     {
         private static int index = 0;
-        
+    
         private static void Main(string[] args)
         {
-            Controller c = new Controller();
+                bool Running = true;
+        Controller c = new Controller();
             
             // Create a list of menu items
             List<string> menuItems = new List<string>() {
@@ -30,7 +31,7 @@ namespace Console_Menu
             c.StartUp();
             // Remove the flashing line and add functionality to the menu items
             Console.CursorVisible = false;
-            while (true)
+            while (Running)
             {
                 string selectedMenuItem = DrawMenu(menuItems);
                 if (selectedMenuItem == "Opret Booking")
@@ -172,11 +173,13 @@ namespace Console_Menu
                 string input = Console.ReadLine();
                 if (input == "J" || input == "j")
                 {
-                    return true;
+                    Running = false;
+                    return Running;
                 }
                 else if (input == "N" || input == "n")
                 {
-                    return false;
+                    Running = false;
+                    return Running;
                 }
                     Console.WriteLine("J/N");
                     bool ans = BooleanChoice();
